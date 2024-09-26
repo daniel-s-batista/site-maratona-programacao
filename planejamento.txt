@@ -1,0 +1,40 @@
+PLANEJAMENTO DAS PÁGINAS
+
+Primeira página: Home [OK!]
+    - Apresentar a maratona criada
+    - Apresentar as maratonas mais famosas
+        - Conter títulos, imagens e textos de cada maratona
+        - Botões que fazem a página "crescer"
+        - Funções necessárias:
+            - Definir quais serão as maratonas a serem apresentadas
+            - Criar textos e escolher fotos para cada maratona
+    * Usar imgs, a(nchors), etc
+
+Segunda página: Inscrição de equipes [OK!]
+    - Fazer um formulário que faça inscrição de uma equipe na maratona
+    - Informações que devem ser informadas na inscrição:
+        - Nome da equipe
+        - Integrantes
+            - Nome do integrante
+            - Idade do integrante
+            - Gênero do integrante
+            - Curso do integrante
+        - Universidade
+        - Cidade
+        - Estado
+        - País
+        - Link para redes sociais da equipe
+    * OBS: Usar o atributo "required" nas tags de input e as pseudo-classes ":valid" e ":invalid" no CSS delas onde e quando for preciso
+    * Usar form, inputs, etc
+
+Terceira página: Regras e datas da maratona
+    - Mencionar regras da maratona
+    - Montar uma tabela com o "calendário" da maratona
+        - Data limite de inscrição
+        - Data da prova
+        - Data da divulgação dos resultados
+    * Usar lists, tables, etc
+
+Quarta página: A maratona (história e dicas)
+    - História da maratona
+    - Dicas para ir bem na maratona

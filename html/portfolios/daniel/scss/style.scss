@@ -1,0 +1,506 @@
+// ##### Geral #####
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Handjet:wght@100..900&display=swap');
+
+$transicao: 0.25s;
+$corBg: #151515;
+$corBgAlt: #303030;
+$corTexto: white;
+$corLink: #090;
+$corLinkHover: #0D0;
+
+@mixin padding-x($padding-x) {
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+}
+
+@mixin padding-y($padding-y) {
+    padding-top: $padding-y;
+    padding-bottom: $padding-y;
+}
+
+@mixin margin-x($margin-x) {
+    margin-left: $margin-x;
+    margin-right: $margin-x;
+}
+
+@mixin margin-y($margin-y) {
+    margin-top: $margin-y;
+    margin-bottom: $margin-y;
+}
+
+@mixin paddingResponsivo($padding-responsivo: calc(50vw - 496px)) {
+    @include padding-x($padding-responsivo);
+}
+
+@mixin mudarTamanho($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+*, p, h1, h2 {
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Code";
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+a {
+    width: min-content;
+    font-weight: bold;
+    text-decoration: none;
+    color: $corLink;
+    border: 2px solid transparent;
+    transition: $transicao;
+    &:hover {
+        color: $corLinkHover;
+        border-bottom: 2px solid $corLinkHover;
+        background-color: darken($corLinkHover, 20%);
+    }
+}
+
+li {
+    position: relative;
+    list-style: none;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: -16px;
+        @include mudarTamanho(5px, 5px);
+        background-color: $corTexto;
+        rotate: 45deg;
+        transition: $transicao;
+    }
+    &:has(a) {
+        &::before {
+            background-color: $corLink;
+        }
+        &:hover::before {
+            top: 4px;
+            @include mudarTamanho(10px, 10px);
+            rotate: 360deg;
+            background-color: $corLinkHover;
+            clip-path: polygon(100% 50%, 0 0, 0 100%);
+        }
+    }
+}
+
+.containerCustom {
+    @include margin-x(15px);
+    @media screen and (min-width: 992px) {
+        @include margin-x(30px);
+    }
+}
+
+lista-deslizante {
+    width: 100%;
+    padding: 15px;
+    height: max-content;
+    background-color: #242424;
+    border-radius: 10px;
+}
+
+lista-deslizante-voltar, lista-deslizante-avancar {
+    width: 75px;
+    height: 75px;
+    opacity: 0.5;
+    transition: $transicao;
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    &:active {
+        opacity: 0.25;
+    }
+}
+
+lista-deslizante-voltar img {
+    rotate: 180deg;
+}
+
+.botoesLista {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.cardCustom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 300px;
+    height: 300px;
+    padding: 15px 10px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: #151515;
+    .thumb {
+        height: 150px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    & img {
+        width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+        transition: $transicao;
+    }
+    &:hover {
+        border-color: $corLinkHover;
+        background-color: $corBgAlt;
+        & img {
+            scale: 1.1;
+        }
+    }
+}
+
+.containerContato {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 36px;
+    max-width: 200px;
+    & a {
+        border: unset;
+        padding: 6px;
+        font-size: 24px;
+        line-height: 24px;
+        &:hover {
+            font-size: 36px;
+            line-height: 36px;
+            padding: 0;
+            background-color: unset;
+        }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $corBg;
+    color: $corTexto;
+}
+
+@media screen and (min-width: 992px) {
+    header, section, footer {
+        @include paddingResponsivo();
+    }
+}
+
+// ##### Header #####
+
+header {
+    z-index: 10;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 75px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 40%, rgba(0, 0, 0, 0.25) 75%, transparent);
+    & > .nav {
+        display: none;
+    }
+    & > #telaMenu, & #btnMenu {
+        display: flex;
+    }
+    @media screen and (min-width: 992px) {
+        & > .nav {
+            display: flex;
+        }
+        & > #telaMenu, & #btnMenu {
+            display: none;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    height: min-content;
+    margin-bottom: 10px;
+    & a {
+        width: max-content;
+        @include padding-x(8px)
+    }
+    & li {
+        &::before {
+            display: none;
+        }
+    }
+}
+
+#btnMenu {
+    z-index: 2;
+    position: absolute;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    top: 20px;
+    right: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: $corLink;
+    background-color: #242424;
+    transition: $transicao;
+    & #iconMenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 35px;
+        height: 20px;
+        transition: $transicao;
+        & .barraMenu {
+            width: 35px;
+            height: 4px;
+            background-color: $corLink;
+            transition: $transicao;
+        }
+    }
+    &:hover {
+        color: $corLinkHover;
+        cursor: pointer;
+        & #iconMenu .barraMenu {
+            background-color: $corLinkHover;
+        }
+    }
+    &.ativo {
+        & #iconMenu .barraMenu {
+            &[value = "1"] {
+                rotate: 45deg;
+                transform: translate(5px, 6px);
+            }
+            &[value = "2"] {
+                opacity: 0;
+            }
+            &[value = "3"] {
+                rotate: -45deg;
+                transform: translate(5px, -6px);
+            }
+        }
+    }
+}
+
+#telaMenu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    gap: 15px;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: -100vw;
+    @include padding-x(15px);
+    background-color: rgba($corBgAlt, 0.75);
+    backdrop-filter: blur(10px);
+    transition: calc($transicao * 2);
+    & .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    & hr {
+        width: 100%;
+        height: 0px;
+        border: 2px solid $corLink;
+    }
+    @media screen and (min-width: 768px) {
+        max-width: 400px;
+    }
+}
+
+// ##### Main #####
+
+section {
+    @include padding-y(30px);
+}
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    background-color: $corBgAlt;
+    clip-path: ellipse(100% 75% at 50% 24%);
+    & .containerCustom {
+        width: 226px;
+        @media screen and (min-width: 576px) {
+            width: 339px;
+        }
+    }
+    & texto-animado {
+        font-family: "Handjet";
+        font-size: 16px;
+        @media screen and (min-width: 576px) {
+            font-size: 24px;
+        }
+    }
+}
+
+#apresentacao .containerCustom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    @include margin-x(20px);
+    overflow: hidden;
+    & > img {
+        order: -2;
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        object-fit: cover;
+        object-position: 0% 25%;
+    }
+    & h2 {
+        margin-bottom: 0;
+        order: -1;
+    }
+    & p {
+        text-indent: 36px;
+        width: 100%;
+        text-align: justify;
+    }
+    .containerIcons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 10px;
+        & img {
+            flex-basis: 30%;
+            height: 50px;
+        }
+    }
+    & ul {
+        padding-left: 20px;
+    }
+    @media screen and (min-width: 768px) {
+        flex-wrap: wrap;
+        max-height: 600px;
+        & h2 {
+            order: -1;
+        }
+        & p {
+            width: 60%;
+        }
+        & > img {
+            order: 1;
+            width: unset;
+            min-width: 40%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .containerIcons img {
+            flex-basis: unset;
+        }
+        & ul {
+            max-width: 400px;
+        }
+    }
+}
+
+#academico {
+    background-color: #242424;
+    & .containerTabela {
+        overflow-x: auto;
+    }
+    & table, & td, & th {
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-collapse: collapse;
+    }
+    & td, & th {
+        min-width: 300px;
+        padding: 5px;
+    }
+    & tr {
+        &:first-child {
+            background-color: #BBB;
+            color: #242424;
+        }
+        &:nth-child(even) {
+            background-color: $corBgAlt;
+        }
+        &:nth-child(odd):not(:first-child) {
+            background-color: #606060;
+        }
+    }
+}
+
+#lazer {
+    background-color: #242424;
+    & .containerCustom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        & > img {
+            order: 1;
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            object-position: 0% 25%;
+        }
+        & h2 {
+            margin: 0;
+        }
+        & p {
+            text-indent: 36px;
+            width: 100%;
+            text-align: justify;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        & .containerCustom {
+            max-height: 450px;
+            flex-direction: column;
+            flex-wrap: wrap;
+            & > img {
+                order: -1;
+                max-width: fit-content;
+                height: unset;
+                min-height: 100%;
+                object-fit: contain;
+            }
+            & p {
+                width: 40%;
+            }
+        }
+    }
+}
+
+// ##### Footer #####
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    clip-path: ellipse(100% 75% at 50% 76%);
+    background-color: $corBgAlt;
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+p {
+    text-align: justify;
+}
+
+#containerElementos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 16px 0;
+    & img {
+        height: 100px;
+    }
+}

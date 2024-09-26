@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+:root {
+    /* --- Medidas --- */
+
+    --alturaHeader: 75px;
+
+    /* --- Tempo de transição --- */
+
+    --transicaoPadrao: 0.25s;
+}
+
+section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#inicio {
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    min-height: 500px;
+    text-align: center;
+    background-image: url("../images/fundo_home.jpg");
+    background-size: cover;
+    * {
+        z-index: 1;
+    }
+    &::before {
+        content: "";
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(rgba(0, 0, 0, 0.4) 75%, black);
+    }
+    & p {
+        text-indent: unset;
+    }
+}
+
+#conhecerMaratonas {
+    display: flex;
+    flex-direction: column;
+    & .containerMaratona {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        overflow: hidden;
+        transition: calc(var(--transicaoPadrao) * 2);
+        & h3 {
+            margin-bottom: 10px;
+        }
+        & img {
+            height: 300px; /* Tirar isso quando colocar as imagens finais */
+        }
+    }
+}
+
+#maratona2, #maratona3 {
+    max-height: 0px;
+}

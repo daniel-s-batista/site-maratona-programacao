@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/geral.css">
+        <link rel="stylesheet" href="../css/inscricoes.css">
+        <title>Inscrições</title>
+    </head>
+    <body>
+        <header>
+            <img src="../images/IronMind.png" alt="Logo da maratona" id="logoMaratona">
+            <div id="btnMenu">
+                <div id="iconMenu">
+                    <div class="barraIconMenu" value="1"></div>
+                    <div class="barraIconMenu" value="2"></div>
+                    <div class="barraIconMenu" value="3"></div>
+                </div>
+                <span>Menu</span>
+            </div>
+            <nav id="telaMenu">
+                <ul>
+                    <a href="home.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="inscricoes.html">
+                        <li>Inscrições</li>
+                    </a>
+                    <a href="regras_datas.html">
+                        <li>Regras e datas</li>
+                    </a>
+                    <a href="sobre.html">
+                        <li>Sobre a maratona</li>
+                    </a>
+                    <strong>Organizadores</strong>
+                    <hr>
+                    <a href="portfolios/alcides/index.html" target="_blank">
+                        <li>Alcides Bacco Neto</li>
+                    </a>
+                    <a href="portfolios/daniel/index.html" target="_blank">
+                        <li>Daniel Salles Batista</li>
+                    </a>
+                    <a href="portfolios/juan/index.html" target="_blank">
+                        <li>Juan Alexandre Jaques Carrasco</li>
+                    </a>
+                    <a href="portfolios/otavio/index.html" target="_blank">
+                        <li>Otávio Gomes de Souza</li>
+                    </a>
+                    <a href="portfolios/pedro/index.html" target="_blank">
+                        <li>Pedro Marcos do Carmo Pompei</li>
+                    </a>
+                    <a href="portfolios/vinicius/index.html" target="_blank">
+                        <li>Vinícius Eduardo Souza Ferreira</li>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="inscricao">
+                <h2 class="tituloSecao">Inscrições para a maratona</h2>
+                <h3 class="subtituloSecao">Faça a inscrição da equipe pelo formulário abaixo</h3>
+                <form action="#">
+                    <label for="nomeEquipe"><strong>* Nome da equipe</strong></label>
+                    <input type="text" id="nomeEquipe" placeholder="Nome da equipe" pattern="\S+.*" required>
+                    <br>
+                    <label><strong>Integrantes da equipe</strong></label>
+                    <div class="conjuntoCampos">
+                        <label><strong>* Integrante 1</strong></label>
+                        <input type="text" id="nomeInt1" placeholder="Nome completo" pattern="\S+.*" required>
+                        <div class="linhaForm">
+                            <input type="text" id="cursoInt1" placeholder="Curso atual" pattern="\S+.*" required>
+                            <input type="text" id="idadeInt1" class="campoIdade" placeholder="Idade" pattern="[0-9]{1,3}" maxlength="3" required>
+                            <select id="generoInt1" required>
+                                <option value="" selected disabled>Gênero</option>
+                                <option value="mas">Masculino</option>
+                                <option value="fem">Feminino</option>
+                                <option value="out">Outro</option>
+                                <option value="nao">Prefiro não informar</option>
+                            </select>
+                        </div>
+                        <label><strong>* Integrante 2</strong></label>
+                        <input type="text" id="nomeInt2" placeholder="Nome completo" pattern="\S+.*" required>
+                        <div class="linhaForm">
+                            <input type="text" id="cursoInt2" placeholder="Curso atual" pattern="\S+.*" required>
+                            <input type="text" id="idadeInt2" class="campoIdade" placeholder="Idade" pattern="[0-9]{1,3}" maxlength="3" required>
+                            <select id="generoInt2" required>
+                                <option value="" selected disabled>Gênero</option>
+                                <option value="mas">Masculino</option>
+                                <option value="fem">Feminino</option>
+                                <option value="out">Outro</option>
+                                <option value="nao">Prefiro não informar</option>
+                            </select>
+                        </div>
+                        <label><strong>* Integrante 3</strong></label>
+                        <input type="text" id="nomeInt3" placeholder="Nome completo" pattern="\S+.*" required>
+                        <div class="linhaForm">
+                            <input type="text" id="cursoInt3" placeholder="Curso atual" pattern="\S+.*" required>
+                            <input type="text" id="idadeInt3" class="campoIdade" placeholder="Idade" pattern="[0-9]{1,3}" maxlength="3" required>
+                            <select id="generoInt3" required>
+                                <option value="" selected disabled>Gênero</option>
+                                <option value="mas">Masculino</option>
+                                <option value="fem">Feminino</option>
+                                <option value="out">Outro</option>
+                                <option value="nao">Prefiro não informar</option>
+                            </select>
+                        </div>
+                        <label><strong>* Integrante 4</strong></label>
+                        <input type="text" id="nomeInt4" placeholder="Nome completo" pattern="\S+.*" required>
+                        <div class="linhaForm">
+                            <input type="text" id="cursoInt4" placeholder="Curso atual" pattern="\S+.*" required>
+                            <input type="text" id="idadeInt4" class="campoIdade" placeholder="Idade" pattern="[0-9]{1,3}" maxlength="3" required>
+                            <select id="generoInt4" required>
+                                <option value="" selected disabled>Gênero</option>
+                                <option value="mas">Masculino</option>
+                                <option value="fem">Feminino</option>
+                                <option value="out">Outro</option>
+                                <option value="nao">Prefiro não informar</option>
+                            </select>
+                        </div>
+                        <label><strong>* Integrante 5</strong></label>
+                        <input type="text" id="nomeInt5" placeholder="Nome completo" pattern="\S+.*" required>
+                        <div class="linhaForm">
+                            <input type="text" id="cursoInt5" placeholder="Curso atual" pattern="\S+.*" required>
+                            <input type="text" id="idadeInt5" class="campoIdade" placeholder="Idade" pattern="[0-9]{1,3}" maxlength="3" required>
+                            <select id="generoInt5" required>
+                                <option value="" selected disabled>Gênero</option>
+                                <option value="mas">Masculino</option>
+                                <option value="fem">Feminino</option>
+                                <option value="out">Outro</option>
+                                <option value="nao">Prefiro não informar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <label for="universidade"><strong>* Universidade</strong></label>
+                    <div class="conjuntoCampos">
+                        <input type="text" id="nomeUniversidade" placeholder="Nome da universidade" required>
+                        <input type="text" id="cidadeUniversidade" placeholder="Cidade da universidade" required>
+                        <input type="text" id="estadoUniversidade" placeholder="Estado da universidade" required>
+                        <input type="text" id="paisUniversidade" placeholder="País da universidade" required>
+                    </div>
+                    <br>
+                    <label for="linkRedeSocial"><strong>Link para rede social da equipe (Opcional)</strong></label>
+                    <input type="text" id="linkRedeSocial" placeholder="Link para rede social">
+                    <br>
+                    <button type="submit">Enviar formulário</button>
+                </form>
+            </section>
+        </main>
+        </main>
+        <footer>
+            <h2>Organizadores</h2>
+            <ul>
+                <li>
+                    <a href="portfolios/alcides/index.html" target="_blank">Alcides Bacco Neto (R.A.: 26.24.1350-7)</a>
+                </li>
+                <li>
+                    <a href="portfolios/daniel/index.html" target="_blank">Daniel Salles Batista (R.A.: 26.24.1096-6)</a>
+                </li>
+                <li>
+                    <a href="portfolios/juan/index.html" target="_blank">Juan Alexandre Jaques Carrasco (R.A.: 26.24.1367-1)</a>
+                </li>
+                <li>
+                    <a href="portfolios/otavio/index.html" target="_blank">Otávio Gomes de Souza (R.A.: 26.24.1260-8)</a>
+                </li>
+                <li>
+                    <a href="portfolios/pedro/index.html" target="_blank">Pedro Marcos do Carmo Pompei (R.A.: 26.24.1356-6)</a>
+                </li>
+                <li>
+                    <a href="portfolios/vinicius/index.html" target="_blank">Vinícius Eduardo Souza Ferreira (R.A.: 26.24.1362-0)</a>
+                </li>
+            </ul>
+        </footer>
+    </body>
+    <script src="../js/geral.js"></script>
+</html>

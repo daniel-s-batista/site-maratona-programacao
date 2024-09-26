@@ -1,0 +1,62 @@
+<!-- Ignorar esse arquivo se ele for enviado -->
+<!-- Estou usando ele para testar os componentes -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .card {
+                min-width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            lista-deslizante {
+                width: 600px;
+            }
+            lista-deslizante-avancar, lista-deslizante-voltar {
+                img {
+                    filter: invert(100%);
+                }
+            }
+            lista-deslizante-voltar {
+                rotate: 180deg;
+            }
+        </style>
+        <title>Teste</title>
+    </head>
+    <body>
+        <lista-deslizante id="lista1" data-lista-gap="10" data-lista-largura-card="100">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card">ABC</div>
+            <div class="card">FINALMENTE CONSEGUI, KRL!!!!111!1</div>
+        </lista-deslizante>
+        <lista-deslizante-voltar data-lista-alvo="#lista1">
+            <img src="../../images/btn_seta.png" alt="">
+        </lista-deslizante-voltar>
+        <lista-deslizante-avancar data-lista-alvo="#lista1">
+            <img src="../../images/btn_seta.png" alt="">
+        </lista-deslizante-avancar>
+        <lista-deslizante id="lista2" data-lista-gap="10" data-lista-largura-card="100">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card">DEF</div>
+            <div class="card">Essa é outra lista</div>
+        </lista-deslizante>
+        <lista-deslizante-voltar data-lista-alvo="#lista2">
+            <img src="../../images/btn_seta.png" alt="">
+        </lista-deslizante-voltar>
+        <lista-deslizante-avancar data-lista-alvo="#lista2">
+            <img src="../../images/btn_seta.png" alt="">
+        </lista-deslizante-avancar>
+    </body>
+    <script src="listaDeslizante.js"></script>
+</html>

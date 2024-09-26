@@ -1,0 +1,123 @@
+body{
+    background-color: rgb(18, 18, 18);
+    padding: 0 12px 0 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(224, 224, 224);
+    margin: 5px 70px 5px 70px;
+    font-size: 16px;
+}
+#menu{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.menu-itens{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.menu-itens div{
+    background-color: rgb(255, 102, 0);
+    padding: 8px;
+    margin: 0 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 90%;
+}
+.menu-itens div:hover {
+    background-color: rgb(155, 69, 26);
+    transition: 0.2s;
+    /* border-color: inherit; */
+}
+
+
+main{
+    background-color: rgb(28, 28, 28);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+
+#sobremim{
+    font-size: 102%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 10px 0 70px 0;
+    /* padding-left: 100px;
+    padding-right: 100px; */
+
+}
+.foto{
+    width: 150px;
+    margin-left: 50px;
+    border-radius: 20px;
+    border: 1px solid rgb(38, 38, 38);
+}
+
+
+.conteudo{
+    /* margin-left: 20px;
+    padding-top: 3px; */
+    padding-right:20px;
+    width: 80%;
+    margin-bottom: 50px;
+    border-right: 0.2px solid rgb(224, 224, 224); /*linha*/
+    border-bottom: 0.2px solid rgb(224, 224, 224);/*linha*/
+    /* background-color: rgb(38, 38, 38); */
+}
+.titulo{
+    width: 20%;
+    /* border-right: 0.2px solid rgb(224, 224, 224); */ /*linha PPP*/
+    /* border-bottom: 0.2px solid rgb(224, 224, 224); */
+    padding-left: 10px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    border: 1px solid rgb(229, 0, 0);
+    border-radius: 8px;
+    height: 0%;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+#formacao{
+    list-style-type:square;
+    /* background-color: rgb(32, 32, 32);
+    border-radius: 8px; */
+    /* margin: 0 10px 0 10px; */
+}
+
+section.justificar{
+    display: flex;
+    justify-content: space-between;
+}
+#habilidades ol{
+    list-style-type: upper-roman;
+}
+
+#experiencia li::marker{
+    color: rgb(255, 102, 0);
+}
+
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+p{
+    text-align: justify;
+}
+
+span{
+    color: rgb(255, 120, 30);
+    font-weight: bold;
+}
+/* div p{
+    padding-top: 10px;
+} */

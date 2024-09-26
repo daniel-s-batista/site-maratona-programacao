@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+:root {
+    /* --- Paleta de cores --- */
+
+    --cor1: #f9f9ed; /* - Sujeita a alterações - */
+    --cor2: #6669fd; /* - Sujeita a alterações - */
+    --cor3: #7293a0; /* - Sujeita a alterações - */
+    --cor4: #16425b; /* - Sujeita a alterações - */
+    --cor5: #44ffd2; /* - Sujeita a alterações - */
+    --cor6: #EE6352; /* Cor específica dessa página; usada para erros e invalidações */
+
+    /* --- Tempo de transição --- */
+
+    --transicaoPadrao: 0.25s;
+}
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+label {
+    padding: 5px;
+}
+
+input, select {
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 2px solid var(--cor4);
+    transition: var(--transicaoPadrao) ease-out;
+    &::placeholder {
+        color: black;
+    }
+}
+
+input {
+    width: 100%;
+    &:focus {
+        outline: 3px solid var(--cor3);
+    }
+    &:required, &:checked {
+        &:not(:placeholder-shown) {
+            background-color: var(--cor6);
+        }
+        &:valid {
+            background-color: #44ffd2;
+        }
+    }
+}
+
+.campoIdade {
+    max-width: 100px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid var(--cor4);
+    border-radius: 5px;
+    & .conjuntoCampos {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid var(--cor4);
+        border-radius: 5px;
+    }
+    & button[type="submit"] {
+        width: 100%;
+        max-width: 500px;
+        padding: 15px;
+        align-self: center;
+    }
+}
+
+.linhaForm {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

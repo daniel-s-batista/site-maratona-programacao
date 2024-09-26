@@ -1,0 +1,316 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+/* SEGUIR O SEGUINTE PADRÃO AO EDITAR O CSS:
+
+NÃO PRECISA UTILIZAR TODAS AS PROPRIEDADES, apenas seguir a organização, ou o Daniel vai caçar todo mundo do grupo (Brincadeirinha!... Ou será que é? ò-ô)
+
+tag, #id, .classe, tag#id.classe1.classe2 (pode combinar, mas só quando preciso) {
+    box-sizing;
+    display;
+    propriedadesDoDisplay (flex-direction, justify-content, align-items,...);
+    gap; (Precisa de "display: flex")
+    position;
+    propriedadesDePosição (top, left, right e bottom);
+    width;
+    height;
+    margin;
+    padding;
+    propriedadesDeTexto (font-size, font-weight, line-height, color,...);
+    propriedadesDeBorda (border, border-radius,...);
+    propriedadesDeBackground (background-color, background-size,...);
+    list-style;
+    overflow;
+    cursor;
+    transition;
+    & tagDentroDaTag, &:pseudo-classe, &::pseudo-elemento, &#id, &.classe {
+        (mesmas regras acima)
+    }
+}
+
+Formas de chamar uma tag em CSS:
+
+tag --> Chama "tag"
+#meuId --> Chama o elemento com o id "meuId" (ID DEVE TER USO EM UMA ÚNICA TAG)
+.classe --> Chama todos os elementos com a class "classe" (CLASSE PODE SER USADA EM VÁRIAS TAGS)
+tag.classe --> Chama todos os elementos com a tag "tag" e que tenham a class "classe"
+tag[atributo="valor"] --> Chama o elemento "tag" que contenha "atributo" com valor igual a "valor"
+tag1 tag2 --> Chama todos os elementos com a tag "tag2" que estejam dentro de "tag1" (Não importa a camada)
+tag1, tag2 --> Chama um estilo que será aplicado ao mesmo tempo em "tag1" e "tag2"
+tag1 > tag2 --> Chama todos os elementos com a tag "tag2" que estejam dentro de "tag1" a *SOMENTE* uma camada abaixo
+    - Ex: <tag1>
+            <tag2> <-- Essa tag está uma camada abaixo, então será chamada
+            <tagDoMeio>
+                <tag2> <-- Essa tag NÃO será chamada por estar a mais de uma camada abaixo
+tag1:has(tag2) --> Chama todas os elementos "tag1" que contenham "tag2"
+    - É possível aplicar algumas regrinhas dentro dos parenteses
+        - Ex: tag1:has(> tag2) <-- Seleciona todos os elementos "tag1" que sejam contenham "tag2" a APENAS uma camada abaixo
+tag:hover --> Chama um estilo para quando o usuário para o mouse sobre o elemento
+
+OBS: Existem mais possibilidades, mas o que provavelmente será usado é isso
+
+*/
+
+/* --- Declaração de variáveis --- */
+:root {
+    /* Para declarar uma variável digite:
+        --nomedavariavel: valor;
+    */
+    /* --- Paleta de cores --- */
+    --cor1: #f9f9ed; /* - Sujeita a alterações - */
+    --cor2: #6669fd; /* - Sujeita a alterações - */
+    --cor3: #7293a0; /* - Sujeita a alterações - */
+    --cor4: #16425b; /* - Sujeita a alterações - */
+    --cor5: #44ffd2; /* - Sujeita a alterações - */
+
+    /* --- Valores RGB da paleta de cores para aplicação de filtros --- */
+    
+    --cor1Alt: 249, 249, 237; /* - Sujeita a alterações - */
+    --cor2Alt: 102, 105, 253; /* - Sujeita a alterações - */
+    --cor3Alt: 114, 147, 160; /* - Sujeita a alterações - */
+    --cor4Alt: 22, 66, 91; /* - Sujeita a alterações - */
+    --cor5Alt: 68, 255, 210; /* - Sujeita a alterações - */
+
+    /* --- Fontes de texto --- */
+
+    --fonte1: "Fira Code";
+
+    /* --- Medidas --- */
+
+    --alturaHeader: 75px;
+
+    /* --- Tempo de transição --- */
+
+    --transicaoPadrao: 0.25s;
+}
+
+
+@keyframes underline {
+    0%, 100% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fonte1);
+}
+
+strong {
+    font-weight: 500;
+}
+
+a, button {
+    padding: 5px;
+    color: var(--cor4);
+    font-size: 16px;
+    text-decoration: unset;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: var(--transicaoPadrao);
+    &:hover {
+        color: var(--cor5);
+        font-weight: 600;
+        border-color: var(--cor5);
+        background-color: var(--cor4);
+        cursor: pointer;
+    }
+}
+
+button, .estiloBotao {
+    display: block;
+    color: white;
+    background-color: black;
+}
+
+.tituloPagina {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.tituloSecao {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    & strong {
+        font-weight: bolder;
+    }
+}
+
+.subtituloSecao {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    & strong {
+        font-weight: bold;
+    }
+}
+
+.paragrafo {
+    text-indent: 32px;
+    line-height: 32px;
+}
+
+.textoBranco {
+    color: white;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    list-style-type: square;
+    & li {
+        line-height: 32px;
+    }
+}
+
+.tabela {
+    border-collapse: collapse;
+    & td, & th {
+        padding: 5px 10px;
+        border: 1px solid var(--cor1);
+    }
+    tr:has(th) {
+        background-color: var(--cor2);
+        color: white;
+    }
+    tr:has(td) {
+        color: white;
+        &:nth-child(2n) {
+            background-color: var(--cor3);
+        }
+        &:nth-child(2n - 1) {
+            background-color: var(--cor4);
+        }
+    }
+}
+
+header, main > section, footer {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    padding: 10px 20px;
+    background-color: var(--cor2);
+}
+
+#logoMaratona {
+    height: 90%;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+}
+
+#telaMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 15px;
+    position: fixed;
+    top: var(--alturaHeader);
+    right: -100vw;
+    width: 100vw;
+    max-width: 320px;
+    height: calc(100vh - var(--alturaHeader));
+    padding: 20px 30px;
+    background-color: rgba(var(--cor3Alt), 0.75);
+    backdrop-filter: blur(10px);
+    overflow: auto;
+    transition: calc(var(--transicaoPadrao) * 2);
+    & ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        list-style-type: none;
+        list-style-position: inside;
+    }
+    & strong {
+        margin-top: 15px;
+    }
+}
+
+#btnMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    height: 50px;
+    margin-right: 15px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: var(--cor1);
+    transition: var(--transicaoPadrao);
+    &:hover {
+        background-color: var(--cor4);
+        cursor: pointer;
+    }
+}
+
+#iconMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 20px;
+    & .barraIconMenu {
+        width: 100%;
+        height: 4px;
+        background-color: var(--cor1);
+    }
+} 
+
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    font-size: 12px;
+    color: white;
+    background-color: var(--cor2);
+    & h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+    & ul {
+        padding: 0;
+        list-style: none inside;
+        & li + li {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    header, main > section, footer {
+        padding-left: calc(20px + (50vw - 700px));
+        padding-right: calc(20px + (50vw - 700px));
+    }
+    #telaMenu {
+        max-width: calc(320px + (50vw - 700px))
+    }
+}
